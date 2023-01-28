@@ -29,7 +29,7 @@ void PrintArray(int[,] array)
     }
 }
 
-int[] FrequencyDictionary(int[,] array)
+void FrequencyDictionary(int[,] array)
 {
     int[] dictionary = new int[10];
 
@@ -41,24 +41,19 @@ int[] FrequencyDictionary(int[,] array)
         }
     }
 
-    return dictionary;
+    for (int i = 0; i < dictionary.Length; i++)
+    {
+    if (dictionary[i] !=0)
+        {
+            Console.WriteLine($"Цифра {i} встречается {dictionary[i]} раз");
+        }
+    }
 }
 
 int[,] massive = CreateArray(3, 3);
-int[] dict;
+
 
 PrintArray(massive);
 Console.WriteLine();
 
-dict = FrequencyDictionary(massive);
-
-Console.WriteLine("[" + string.Join(", ", dict) + "]");
-Console.WriteLine();
-
-for (int i = 0; i < dict.Length; i++)
-{
-    if (dict[i] !=0)
-    {
-        Console.WriteLine($"Цифра {i} встречается {dict[i]} раз");
-    }
-}
+FrequencyDictionary(massive);
